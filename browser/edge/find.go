@@ -3,10 +3,10 @@ package edge
 import (
 	"runtime"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/chrome"
-	chromefind "github.com/browserutils/kooky/internal/chrome/find"
-	"github.com/browserutils/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/chrome"
+	chromefind "github.com/ASISolutions/kooky/internal/chrome/find"
+	"github.com/ASISolutions/kooky/internal/cookies"
 )
 
 type edgeFinder struct{}

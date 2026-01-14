@@ -3,8 +3,8 @@ package ie
 import (
 	"errors"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/iterx"
 )
 
 func (s *CookieStore) TraverseCookies(filters ...kooky.Filter) kooky.CookieSeq {

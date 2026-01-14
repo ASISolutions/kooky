@@ -5,10 +5,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/iterx"
-	"github.com/browserutils/kooky/internal/utils"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky/internal/utils"
 )
 
 func ReadCookies(ctx context.Context, filename string, filters ...kooky.Filter) ([]*kooky.Cookie, error) {

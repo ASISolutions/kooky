@@ -3,9 +3,9 @@ package firefox
 import (
 	"context"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/firefox"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/firefox"
 )
 
 func ReadCookies(ctx context.Context, filename string, filters ...kooky.Filter) ([]*kooky.Cookie, error) {

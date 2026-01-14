@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/iterx"
 )
 
 const httpOnlyPrefix = `#HttpOnly_`

@@ -7,9 +7,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/iterx"
-	"github.com/browserutils/kooky/internal/timex"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky/internal/timex"
 
 	"github.com/Velocidex/ordereddict"
 	"www.velocidex.com/golang/go-ese/parser"

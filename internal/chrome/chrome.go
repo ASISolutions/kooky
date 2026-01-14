@@ -16,10 +16,10 @@ import (
 
 	"golang.org/x/crypto/pbkdf2"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/iterx"
-	"github.com/browserutils/kooky/internal/timex"
-	"github.com/browserutils/kooky/internal/utils"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky/internal/timex"
+	"github.com/ASISolutions/kooky/internal/utils"
 )
 
 // chromeSameSiteToHTTP converts Chrome's samesite integer to http.SameSite

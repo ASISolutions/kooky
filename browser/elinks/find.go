@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
 )
 
 type elinksFinder struct{}

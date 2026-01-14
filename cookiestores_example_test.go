@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/browserutils/kooky"
-	_ "github.com/browserutils/kooky/browser/all" // register cookiestore finders
+	"github.com/ASISolutions/kooky"
+	_ "github.com/ASISolutions/kooky/browser/all" // register cookiestore finders
 )
 
 func ExampleFindAllCookieStores() {

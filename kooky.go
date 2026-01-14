@@ -24,11 +24,11 @@ type Cookie struct {
 //
 // Register cookie store finders for all browsers like this:
 //
-//	import _ "github.com/browserutils/kooky/browser/all"
+//	import _ "github.com/ASISolutions/kooky/browser/all"
 //
 // Or only a specific browser:
 //
-//	import _ "github.com/browserutils/kooky/browser/chrome"
+//	import _ "github.com/ASISolutions/kooky/browser/chrome"
 func ReadCookies(ctx context.Context, filters ...Filter) (Cookies, error) {
 	return TraverseCookies(ctx).ReadAllCookies(ctx)
 }

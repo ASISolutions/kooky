@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/netscape"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/netscape"
 )
 
 type dilloFinder struct{}

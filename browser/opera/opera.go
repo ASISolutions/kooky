@@ -3,11 +3,11 @@ package opera
 import (
 	"errors"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/chrome"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/iterx"
-	"github.com/browserutils/kooky/internal/utils"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/chrome"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky/internal/utils"
 )
 
 func TraverseCookies(filename string, filters ...kooky.Filter) kooky.CookieSeq {

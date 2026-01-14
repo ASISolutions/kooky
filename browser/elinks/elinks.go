@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/iterx"
 )
 
 type elinksCookieStore struct {

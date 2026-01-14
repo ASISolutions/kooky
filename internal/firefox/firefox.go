@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/iterx"
-	"github.com/browserutils/kooky/internal/utils"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/iterx"
+	"github.com/ASISolutions/kooky/internal/utils"
 )
 
 func (s *CookieStore) TraverseCookies(filters ...kooky.Filter) kooky.CookieSeq {

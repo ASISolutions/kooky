@@ -4,8 +4,8 @@ import (
 	"errors"
 	"io"
 
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/utils"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/utils"
 )
 
 type operaCookieStore struct {

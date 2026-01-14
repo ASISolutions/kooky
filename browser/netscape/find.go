@@ -1,10 +1,10 @@
 package netscape
 
 import (
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/firefox/find"
-	"github.com/browserutils/kooky/internal/netscape"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/firefox/find"
+	"github.com/ASISolutions/kooky/internal/netscape"
 )
 
 type netscapeFinder struct{}

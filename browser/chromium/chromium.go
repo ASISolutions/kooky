@@ -3,9 +3,9 @@ package chromium
 import (
 	"context"
 
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/chrome"
-	"github.com/browserutils/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/chrome"
+	"github.com/ASISolutions/kooky/internal/cookies"
 )
 
 func ReadCookies(ctx context.Context, filename string, filters ...kooky.Filter) ([]*kooky.Cookie, error) {

@@ -9,8 +9,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/browserutils/kooky"
-	_ "github.com/browserutils/kooky/browser/firefox"
+	"github.com/ASISolutions/kooky"
+	_ "github.com/ASISolutions/kooky/browser/firefox"
 )
 
 func Example_cookieJar() {

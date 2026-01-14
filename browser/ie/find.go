@@ -1,10 +1,10 @@
 package ie
 
 import (
-	"github.com/browserutils/kooky"
-	"github.com/browserutils/kooky/internal/cookies"
-	"github.com/browserutils/kooky/internal/ie"
-	_ "github.com/browserutils/kooky/internal/ie/find"
+	"github.com/ASISolutions/kooky"
+	"github.com/ASISolutions/kooky/internal/cookies"
+	"github.com/ASISolutions/kooky/internal/ie"
+	_ "github.com/ASISolutions/kooky/internal/ie/find"
 )
 
 type ieFinder struct{}

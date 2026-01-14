@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/browserutils/kooky/browser/netscape"
-	"github.com/browserutils/kooky/internal/testutils"
+	"github.com/ASISolutions/kooky/browser/netscape"
+	"github.com/ASISolutions/kooky/internal/testutils"
 )
 
 func TestReadCookies(t *testing.T) {

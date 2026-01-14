@@ -3,8 +3,8 @@ package kooky_test
 import (
 	"context"
 
-	"github.com/browserutils/kooky"
-	_ "github.com/browserutils/kooky/browser/all" // register cookiestore finders
+	"github.com/ASISolutions/kooky"
+	_ "github.com/ASISolutions/kooky/browser/all" // register cookiestore finders
 )
 
 var cookieName = `NID`
