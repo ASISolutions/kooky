@@ -2,6 +2,8 @@ package chrome
 
 import (
 	"errors"
+	"os"
+	"time"
 
 	"github.com/go-sqlite/sqlite3"
 
@@ -17,6 +19,7 @@ type CookieStore struct {
 	DecryptionMethod     func(data, password []byte, dbVersion int64) ([]byte, error)
 	storage              safeStorage
 	dbVersion            int64
+	tempDBPath           string // Path to temp DB copy (if used)
 }
 
 func (s *CookieStore) Open() error {
@@ -27,16 +30,69 @@ func (s *CookieStore) Open() error {
 		return nil
 	}
 
-	f, err := utils.OpenFile(s.FileNameStr)
+	// Try to open directly first with retries
+	var lastErr error
+	for attempt := 0; attempt < 3; attempt++ {
+		if attempt > 0 {
+			time.Sleep(time.Duration(attempt*100) * time.Millisecond)
+		}
+
+		f, err := utils.OpenFile(s.FileNameStr)
+		if err != nil {
+			lastErr = err
+			if utils.IsDBLocked(err) {
+				continue
+			}
+			return err
+		}
+
+		db, err := sqlite3.OpenFrom(f)
+		if err != nil {
+			f.Close()
+			lastErr = err
+			if utils.IsDBLocked(err) {
+				continue
+			}
+			return err
+		}
+
+		s.Database = db
+		return nil
+	}
+
+	// If retries failed due to locked DB, try copying to temp
+	if utils.IsDBLocked(lastErr) {
+		return s.openFromCopy()
+	}
+
+	return lastErr
+}
+
+// openFromCopy copies the database to a temp file and opens that instead.
+// This works around locked database issues when the browser is running.
+func (s *CookieStore) openFromCopy() error {
+	tmpPath, err := utils.CopyDBToTemp(s.FileNameStr)
 	if err != nil {
 		return err
 	}
+	s.tempDBPath = tmpPath
+
+	f, err := utils.OpenFile(tmpPath)
+	if err != nil {
+		os.Remove(tmpPath)
+		s.tempDBPath = ""
+		return err
+	}
+
 	db, err := sqlite3.OpenFrom(f)
 	if err != nil {
+		f.Close()
+		os.Remove(tmpPath)
+		s.tempDBPath = ""
 		return err
 	}
-	s.Database = db
 
+	s.Database = db
 	return nil
 }
 
@@ -50,6 +106,12 @@ func (s *CookieStore) Close() error {
 	err := s.Database.Close()
 	if err == nil {
 		s.Database = nil
+	}
+
+	// Clean up temp DB copy if one was used
+	if s.tempDBPath != "" {
+		os.Remove(s.tempDBPath)
+		s.tempDBPath = ""
 	}
 
 	return err

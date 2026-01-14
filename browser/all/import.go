@@ -4,6 +4,7 @@ import (
 	_ "github.com/browserutils/kooky/browser/browsh"
 	_ "github.com/browserutils/kooky/browser/chrome"
 	_ "github.com/browserutils/kooky/browser/chromium"
+	_ "github.com/browserutils/kooky/browser/comet"
 	_ "github.com/browserutils/kooky/browser/dillo"
 	_ "github.com/browserutils/kooky/browser/edge"
 	_ "github.com/browserutils/kooky/browser/elinks"

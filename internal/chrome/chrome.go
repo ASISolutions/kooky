@@ -8,6 +8,7 @@ import (
 	"crypto/sha1"
 	"errors"
 	"fmt"
+	"net/http"
 	"runtime"
 	"slices"
 	"strconv"
@@ -20,6 +21,23 @@ import (
 	"github.com/browserutils/kooky/internal/timex"
 	"github.com/browserutils/kooky/internal/utils"
 )
+
+// chromeSameSiteToHTTP converts Chrome's samesite integer to http.SameSite
+// Chrome values: -1=unspecified, 0=NO_RESTRICTION(none), 1=LAX, 2=STRICT
+func chromeSameSiteToHTTP(chromeSameSite int64) http.SameSite {
+	switch chromeSameSite {
+	case -1:
+		return http.SameSiteDefaultMode // Unspecified
+	case 0:
+		return http.SameSiteNoneMode // NO_RESTRICTION
+	case 1:
+		return http.SameSiteLaxMode // LAX_MODE
+	case 2:
+		return http.SameSiteStrictMode // STRICT_MODE
+	default:
+		return http.SameSiteDefaultMode
+	}
+}
 
 // Thanks to https://gist.github.com/dacort/bd6a5116224c594b14db
 
@@ -108,6 +126,13 @@ func (s *CookieStore) TraverseCookies(filters ...kooky.Filter) kooky.CookieSeq {
 			if err != nil {
 				return err
 			}
+
+			// SameSite attribute (Chrome stores as int: -1=unspecified, 0=none, 1=lax, 2=strict)
+			if sameSite, err := row.Int64(`samesite`); err == nil {
+				cookie.SameSite = chromeSameSiteToHTTP(sameSite)
+			}
+			// Don't error if samesite column doesn't exist (older Chrome versions)
+
 			cookie.Browser = s
 
 			if !yldr(ctx, yield, cookie, nil, valRetr(row)) {
